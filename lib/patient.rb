@@ -1,6 +1,12 @@
 #!/usr/bin/ruby
 
-class Patients
+class Patient
+  attr_reader(:name, :dob)
+
+  def initialize (attributes)
+    @name = attributes.fetch(:name)
+    @dob = attributes.fetch(:dob)
+  end
+
 
 end
-
