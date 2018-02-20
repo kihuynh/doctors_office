@@ -8,5 +8,8 @@ class Patient
     @dob = attributes.fetch(:dob)
   end
 
-
+  def self.all()
+    patient_list = []
+  end
+  
 end
