@@ -13,11 +13,12 @@ describe(Patient) do
       end
     end
 
-    # describe("#name") do
-    #   it("input a patient's name and DOB") do
-    #     patient = Patient.new({:name => "Joey", :dob => "2008-01-01 00:00:00"})
-    #     expect(Patient.name()).to(eq("Joey"))
-    #   end
-    # end
+    describe("#save") do
+      it("add a patient's name and DOB to save") do
+        patient = Patient.new({:name => "Joey", :dob => "2008-01-01 00:00:00"})
+        patient.save()
+        expect(Patient.all()).to(eq([patient]))
+      end
+    end
 
 end
