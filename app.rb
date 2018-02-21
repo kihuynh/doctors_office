@@ -21,3 +21,13 @@ get('/patients') do
   # Display current Patients
   erb(:patients)
 end
+
+get('/doctors_new')do
+# new doctor form
+  erb(:doctors_new)
+end
+
+post('/doctors_new')do
+# new doctor information. params and such and saving and stuff
+  erb(:doctors_new)
+end
