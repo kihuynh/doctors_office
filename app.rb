@@ -2,11 +2,11 @@ require('sinatra')
 require('sinatra/reloader')
 also_reload('lib/**.*.rb')
 require('./lib/doctor')
-#add require('./lib/patient')
+require('./lib/patient')
 require('pg')
 
 DB = PG.connect({:dbname => "doctors_office"})
-
+# restful something. took photos.
 get('/') do
   erb(:input)
 end
