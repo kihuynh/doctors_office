@@ -6,4 +6,8 @@ class Doctor
     @specialty = attributes.fetch(:specialty)
   end
 
+  def self.all
+    returned_doctors = DB.exec('SELECT * FROM doctors;')
+    doctors_list = []
+  end
 end

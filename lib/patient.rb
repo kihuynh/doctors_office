@@ -10,7 +10,7 @@ class Patient
   end
 
   def self.all
-      returned_patients = DB.exec("SELECT * FROM patients;")
+      returned_patients = DB.exec('SELECT * FROM patients;')
       patient_lists = []
       returned_patients.each() do |patient|
         name = patient.fetch('name')
