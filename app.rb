@@ -17,7 +17,7 @@ get('/doctors') do
   erb(:doctors)
 end
 
-get('patients') do
+get('/patients') do
   # Display current Patients
   erb(:patients)
 end
