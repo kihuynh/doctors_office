@@ -1,12 +1,12 @@
 #!/usr/bin/ruby
 
 class Patient
-  attr_reader(:name, :dob, :id)
-
+  attr_reader(:name, :dob, :doctor_id)
+  # add :id back into reader to initialize the id in .all
   def initialize(attributes)
     @name = attributes.fetch(:name)
     @dob = attributes.fetch(:dob)
-    @id = attributes.fetch(:id)
+    @doctor_id = attributes.fetch(:doctor_id)
   end
 
   def self.all
@@ -16,17 +16,18 @@ class Patient
         # for each patient grab each info
         name = patient.fetch('name')
         dob = patient.fetch('dob')
-        id = patient.fetch('id').to_i()
+        # id = patient.fetch('id').to_i()
+        doctor_id = patient.fetch('doctor_id').to_i()
         # push all new patient info into patient list
-        patient_lists.push(Patient.new({:name => name, :dob => dob, :id => nil}))
+        patient_lists.push(Patient.new({:name => name, :dob => dob, :doctor_id => doctor_id}))
       end
       patient_lists
   end
 
 
   def save
-    result = DB.exec("INSERT INTO patients (name, dob) VALUES ('#{@name}', '#{@dob}') RETURNING id;")
-    @id = result.first().fetch('id').to_i()
+    result = DB.exec("INSERT INTO patients (name, dob, doctor_id) VALUES ('#{@name}', '#{@dob}', #{@doctor_id});")
+    # @id = result.first().fetch('id').to_i()
   end
   #
   def ==(other_patient)
