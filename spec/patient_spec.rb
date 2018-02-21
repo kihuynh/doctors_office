@@ -19,6 +19,13 @@ describe(Patient) do
       end
     end
 
+    describe('#list_id') do
+      it("says what patient_id belongs to doctor") do
+        test = Patient.new({:name => 'Banana', :dob => "1999-09-09 00:00:00", :doctor_id => 1})
+        expect(test.doctor_id()).to(eq(1))
+      end
+    end
+
   describe('#==') do
     it('same patient with the same name') do
       patient1 = Patient.new({:name => 'Aria', :dob => '1999-03-08 00:00:00', :doctor_id => 1})
