@@ -15,13 +15,15 @@ describe(Doctor) do
   describe("save") do
     it("adds doctors to the list") do
       doc = Doctor.new({:name => 'Lorenzo', :specialty => 'Dermatologist'})
+      doc.save()
+      expect(Doctor.all()).to(eq([doc]))
     end
   end
 
   describe('#==') do
     it("same doctor with same name and specialty") do
       doctor1 = Doctor.new({:name => 'Lorenzo', :specialty => 'Dermatology'})
-      doctor1 = Doctor.new({:name => 'Lorenzo', :specialty => 'Dermatology'})
+      doctor2 = Doctor.new({:name => 'Lorenzo', :specialty => 'Dermatology'})
       expect(doctor1).to(eq(doctor2))
     end
   end
