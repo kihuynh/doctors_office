@@ -18,5 +18,11 @@ describe(Doctor) do
     end
   end
 
-
+  describe('#==') do
+    it("same doctor with same name and specialty") do
+      doctor1 = Doctor.new({:name => 'Lorenzo', :specialty => 'Dermatology'})
+      doctor1 = Doctor.new({:name => 'Lorenzo', :specialty => 'Dermatology'})
+      expect(doctor1).to(eq(doctor2))
+    end
+  end
 end
