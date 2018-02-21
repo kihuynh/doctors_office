@@ -12,6 +12,11 @@ describe(Doctor) do
     end
   end
 
+  describe("save") do
+    it("adds doctors to the list") do
+      doc = Doctor.new({:name => 'Lorenzo', :specialty => 'Dermatologist'})
+    end
+  end
 
 
 end
