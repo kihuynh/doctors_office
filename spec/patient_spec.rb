@@ -21,7 +21,7 @@ describe(Patient) do
 
     describe("#save") do
       it("add a patient's name and DOB to save") do
-        patient = Patient.new({:name => "Joey", :dob => "2008-01-01 00:00:00"})
+        patient = Patient.new({:name => "Joey", :dob => "2008-01-01 00:00:00", :id => nil})
         patient.save()
         expect(Patient.all()).to(eq([patient]))
       end
@@ -33,8 +33,8 @@ describe(Patient) do
 
   describe("#==") do
     it("same patient with the same name") do
-      patient1 = Patient.new({:name => "Aria", :dob => "1999-03-08 00:00:00"})
-      patient2 = Patient.new({:name => "Aria", :dob => "1999-03-08 00:00:00"})
+      patient1 = Patient.new({:name => "Aria", :dob => "1999-03-08 00:00:00", :id => nil})
+      patient2 = Patient.new({:name => "Aria", :dob => "1999-03-08 00:00:00", :id => nil})
       expect(patient1).to(eq(patient2))
     end
   end
