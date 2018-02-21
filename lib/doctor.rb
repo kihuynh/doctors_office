@@ -1,5 +1,5 @@
 class Doctor
-  attr_reader(:name, :specialty)
+  attr_reader(:name, :specialty, :id)
 
   def initialize(attributes)
     @name = attributes.fetch(:name)
