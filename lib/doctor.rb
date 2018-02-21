@@ -1,10 +1,10 @@
 class Doctor
-  attr_reader(:name, :specialty, :id)
-
+  attr_reader(:name, :specialty, :patient_id)
+  # attr table similar to datatable.
   def initialize(attributes)
     @name = attributes.fetch(:name)
     @specialty = attributes.fetch(:specialty)
-    # initialize @patient_list
+    @patient_id = attributes.fetch(:patient_id)
   end
 
   def self.all
@@ -13,9 +13,9 @@ class Doctor
     returned_doctors.each() do |doctor|
       name = doctor.fetch('name')
       specialty = doctor.fetch('specialty')
-      # comment out id.
-      # insert patient_list for doctor to fetch
       # So it can grab the foreign key.
+      patient_id = doctor.fetch('patient_id').to_i()
+      doctors_list.push(Doctor.new({:name => name, :specialty => specialty, :patient_id => patient_id}))
       # id = doctor.fetch('id').to_i()
       # doctors_list.push(Doctor.new({:name => name, :specialty => specialty, :id => nil}))
     end
@@ -23,7 +23,7 @@ class Doctor
   end
 
   def save
-    result = DB.exec("INSERT INTO doctors (name, specialty) VALUES ('#{@name}', '#{@specialty}', #{@patient_list}) RETURNING id;")
+    result = DB.exec("INSERT INTO doctors (name, specialty, patient_id) VALUES ('#{@name}', '#{@specialty}', #{@patient_id});")
     # patient_list doesn't have ' ' around the #{} because want patient_list go into data as an integer
     # @id = result.first().fetch('id').to_i()
   end
