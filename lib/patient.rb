@@ -13,9 +13,11 @@ class Patient
       returned_patients = DB.exec('SELECT * FROM patients;')
       patient_lists = []
       returned_patients.each() do |patient|
+        # for each patient grab each info
         name = patient.fetch('name')
         dob = patient.fetch('dob')
         id = patient.fetch('id').to_i()
+        # push all new patient info into patient list
         patient_lists.push(Patient.new({:name => name, :dob => dob, :id => nil}))
       end
       patient_lists
