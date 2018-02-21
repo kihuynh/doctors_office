@@ -1,8 +1,7 @@
 require('rspec')
 require('doctor')
 require('pg')
-
-DB = PG.connect({:dbname => 'doctors_office_test'})
+require('spec_helper')
 
 
 describe(Doctor) do
@@ -12,9 +11,9 @@ describe(Doctor) do
     end
   end
 
-  describe("save") do
-    it("adds doctors to the list") do
-      doc = Doctor.new({:name => 'Lorenzo', :specialty => 'Dermatologist'})
+  describe('save') do
+    it('adds doctors to the list') do
+      doc = Doctor.new({:name => 'Lorenzo', :specialty => 'Dermatologist', :id => nil})
       doc.save()
       expect(Doctor.all()).to(eq([doc]))
     end
@@ -22,8 +21,8 @@ describe(Doctor) do
 
   describe('#==') do
     it("same doctor with same name and specialty") do
-      doctor1 = Doctor.new({:name => 'Lorenzo', :specialty => 'Dermatology'})
-      doctor2 = Doctor.new({:name => 'Lorenzo', :specialty => 'Dermatology'})
+      doctor1 = Doctor.new({:name => 'Lorenzo', :specialty => 'Dermatology', :id => nil})
+      doctor2 = Doctor.new({:name => 'Lorenzo', :specialty => 'Dermatology', :id => nil})
       expect(doctor1).to(eq(doctor2))
     end
   end
