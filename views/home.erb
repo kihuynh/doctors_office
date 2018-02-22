@@ -7,15 +7,23 @@
     <div class="col-md-6">
       <h4>Current</h4>
       <form action="/doctors" method="get">
-        <button type="click" class="btn btn-info" name="button">Current Doctors</button>
+        <button type="submit" class="btn btn-info" name="button">Current Doctors</button>
       </form>
+      <br>
       <form action="/patients" method="get">
-        <button type="click" class="btn btn-primary" name="button">Current Patients</button>
+        <button type="submit" class="btn btn-primary" name="button">Current Patients</button>
       </form>
     </div>
 
     <div class="col-md-6">
       <h4>Create New</h4>
+      <form action="/patients-new" method="get">
+        <button type="submit" class="btn btn-info">Create New PATIENT file</button>
+      </form>
+      <br>
+      <form action="/doctors-new" method="get">
+        <button type="submit" class="btn btn-primary">Create New DOCTOR file</button>
+      </form>
     </div>
   </div>
 </div>

@@ -22,12 +22,21 @@ get('/patients') do
   erb(:patients)
 end
 
-get('/doctors_new')do
+get('/doctors-new') do
 # new doctor form
   erb(:doctors_new)
 end
+get('/patients-new') do
+# new doctor form
+  erb(:patients_new)
+end
 
-post('/doctors_new')do
+post('/patients-new') do
+  # new patient information. params and such to save
+  erb(:patients_new)
+end
+
+post('/doctors_new') do
 # new doctor information. params and such and saving and stuff
   erb(:doctors_new)
 end
