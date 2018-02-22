@@ -14,11 +14,13 @@ end
 #
 get('/doctors') do
 # Display current doctor info
+  @doctors = Doctor.all()
   erb(:doctors)
 end
 
 get('/patients') do
   # Display current Patients
+  @patients = Patient.all()
   erb(:patients)
 end
 
@@ -38,5 +40,6 @@ end
 
 post('/doctors_new') do
 # new doctor information. params and such and saving and stuff
+  name = params.fetch('name')
   erb(:doctors_new)
 end
