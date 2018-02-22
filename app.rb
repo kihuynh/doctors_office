@@ -40,7 +40,8 @@ post('/patients') do
   dob = params.fetch('dob')
   patient = Patient.new({:name => name, :dob => dob, :doctor_id => nil, :id => nil})
   patient.save()
-  # Look at RESTFUL lesson for post
+  # @patient = Patient.find(params.fetch('doctor_id').to_i())
+  # Look at RESTFUL lesson for form submitting POST
   @patient = Patient.all()
   erb(:patients_new)
 end
