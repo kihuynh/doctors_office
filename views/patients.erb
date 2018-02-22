@@ -1,3 +1,9 @@
 <!-- Display patient information & which doctor is assigned -->
+<!--  patient.id in the a tag with the <> and the percent sign with the equal sign for later-->
 <a href="/">Return to Main Page</a>
 <h1>Current Patient List</h1>
+<div class="container" id="patient-list">
+  <% @patients.each do |patient| %>
+    <p><a href="/output/" class="link"><%= patient.name %></a> </p>
+  <% end %>
+</div>
